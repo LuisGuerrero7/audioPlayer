@@ -1,6 +1,7 @@
 import React from "react";
 
 import SongList from "./songList";
+import Control from "./control";
 
 //create your first component
 const Home = () => {
@@ -8,6 +9,8 @@ const Home = () => {
 		<div className="text-center">
             
 			<SongList/>
+
+			<Control/>
 			
 		</div>
 	);
