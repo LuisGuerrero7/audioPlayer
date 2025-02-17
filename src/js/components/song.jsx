@@ -1,15 +1,18 @@
 import React from "react";
 
-const Song = () => {
+const Song = ({ song, index }) => {
     return (
-        <div className="container bg-dark d-block border-bottom border-success rounded">
-            <div className="d-flex text-center justify-content-between p-2 m-2">                
-                <div className="col-2">Number</div>
-                <div className="col-8">Name</div>
-                <button type="button" className="btn btn-success col-2" >Play</button>
+        <div className="container bg-dark border-bottom border-success rounded">
+            <div className="d-flex text-center justify-content-between p-2 m-2 text-light">
+                <div className="col-2">{index + 1}</div>
+                <div className="col-6">{song.name}</div>
+                <audio controls className="col-4">
+                    <source src={song.url} type="audio/mp3" />
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Song
+export default Song;
