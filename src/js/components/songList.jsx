@@ -13,7 +13,7 @@ const SongList = () => {
                     throw new Error(`Error: ${response.status}, ${response.statusText}`);
                 }
                 const data = await response.json();
-                setSongs(data); // Guardamos las canciones en el estado
+                setSongs(data.songs); // Guardamos las canciones en el estado
             } catch (error) {
                 console.error("Fetch error:", error);
             }
