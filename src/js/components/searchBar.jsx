@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import useDebounce from "./useDebounce";
 
 const SearchBar = ({ songs, setFilteredSongs }) => {
-    const [input, setInput] = useState(""); // Inicializar como un string
+    const [input, setInput] = useState(""); // Estado para la entrada del usuario
+    const debounceText = useDebounce(input, 1000); // Aplicamos debounce al input
 
     const handleInputChange = (e) => {
-        const searchTerm = e.target.value.toLowerCase();
-        setInput(searchTerm);
-
-        // Filtramos las canciones según el nombre
-        const filtered = songs.filter(song => song.name.toLowerCase().includes(searchTerm));
-        setFilteredSongs(filtered);
+        setInput(e.target.value.toLowerCase());
     };
+
+    // Filtramos cuando debounceText cambia
+    useEffect(() => {
+        const filtered = songs.filter(song => song.name.toLowerCase().includes(debounceText));
+        setFilteredSongs(filtered);
+    }, [debounceText, songs, setFilteredSongs]);
 
     return (
         <div className="input-group mb-3">

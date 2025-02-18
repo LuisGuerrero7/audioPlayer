@@ -20,7 +20,6 @@ const SongList = () => {
                 console.error("Fetch error:", error);
             }
         };
-
         getSongsFromAPI();
     }, []);
 
