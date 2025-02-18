@@ -1,24 +1,30 @@
-import React from "react";
-import SongList from "./songList";
+import React, { useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ songs, setFilteredSongs }) => {
+    const [input, setInput] = useState(""); // Inicializar como un string
 
-    // const [input,setInput] = useState([])
+    const handleInputChange = (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        setInput(searchTerm);
 
-    // const handleInputChange = (e) =>{
-    //     setInput(e.target.value)
-    // };
-
-    // const songFiltered = songs.filter(s => s.includes(input))
+        // Filtramos las canciones según el nombre
+        const filtered = songs.filter(song => song.name.toLowerCase().includes(searchTerm));
+        setFilteredSongs(filtered);
+    };
 
     return (
         <div className="input-group mb-3">
             <span className="input-group-text" id="inputGroup-sizing-default">Search</span>
-            <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" 
-            // onChange={handleInputChange}
+            <input 
+                type="text" 
+                className="form-control" 
+                aria-label="Sizing example input" 
+                aria-describedby="inputGroup-sizing-default" 
+                value={input}
+                onChange={handleInputChange}
             />
         </div>   
-    )
-}
+    );
+};
 
-export default SearchBar
+export default SearchBar;
