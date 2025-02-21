@@ -7,7 +7,7 @@ const Home = () => {
 	return (
 		<div className="text-center">
 			<SongList />
-			<Control />
+			{/* <Control /> */}
 		</div>
 	);
 };

@@ -24,7 +24,7 @@ const SongList = () => {
     }, []);
 
     return (
-        <div className="container">
+        <div className="container mb-3 pb-3">
             <h1 className="p-3 m-3">My Songs</h1>
             <SearchBar songs={songs} setFilteredSongs={setFilteredSongs} />
             <div className="list-group">

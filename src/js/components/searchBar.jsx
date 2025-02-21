@@ -16,7 +16,7 @@ const SearchBar = ({ songs, setFilteredSongs }) => {
     }, [debounceText, songs, setFilteredSongs]);
 
     return (
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 pb-3">
             <span className="input-group-text" id="inputGroup-sizing-default">Search</span>
             <input 
                 type="text" 
